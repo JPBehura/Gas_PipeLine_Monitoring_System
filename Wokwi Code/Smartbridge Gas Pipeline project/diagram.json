@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "author": "JYOTI PRAKASH BEHURA 20BCE7355",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -34.66, "left": 53.99, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -12.19,
+      "left": 234.17,
+      "attrs": { "temperature": "72.3", "humidity": "70" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -59.15, "left": -152.65, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot2", "top": -66.1, "left": -55.14, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "dht1:SDA", "esp:D15", "green", [ "v0" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pot1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "pot2:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "pot1:SIG", "esp:D34", "green", [ "v0" ] ],
+    [ "pot2:SIG", "esp:D32", "green", [ "v0" ] ],
+    [ "pot1:VCC", "pot2:VCC", "red", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
